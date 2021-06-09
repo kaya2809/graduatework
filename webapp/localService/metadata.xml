@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zpok_sd_product" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="LocationType" sap:label="Projection CDS View For Location" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StoregeUuig"/>
+                    <PropertyRef Name="CellId"/>
+                    <PropertyRef Name="ProductUuid"/>
+                </Key>
+                <Property Name="free_cell_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StoregeUuig" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CellId" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Cell id" sap:quickinfo="Cell ID" sap:value-list="standard"/>
+                <Property Name="ProductUuid" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)" sap:updatable="false"/>
+                <Property Name="CellRow" Type="Edm.Byte" sap:label="Cell Row" sap:quickinfo="Cell row" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CellDeep" Type="Edm.Byte" sap:label="Cell Deep" sap:quickinfo="Cell deep" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CellLevel" Type="Edm.Byte" sap:label="Cell Level" sap:quickinfo="Cell level" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Amount" Type="Edm.Int32" sap:unit="SizeUom" sap:label="Product amount"/>
+                <Property Name="SizeUom" Type="Edm.String" MaxLength="3" sap:label="Internal UoM" sap:quickinfo="Unit of Measurement" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="CellStatus" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Cell status" sap:quickinfo="Cell Status" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CellPrice" Type="Edm.Decimal" Precision="16" Scale="3" sap:label="Cell Price" sap:quickinfo="Cell price" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PriceCurrency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="Startdate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Start date" sap:quickinfo="Start Date"/>
+                <Property Name="Enddate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="End Date" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationTime" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Created On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangeTime" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Changed On" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_product" Relationship="cds_zpok_sd_product.assoc_B32D896801886AD7054A844BD47EC3C2" FromRole="FromRole_assoc_B32D896801886AD7054A844BD47EC3C2" ToRole="ToRole_assoc_B32D896801886AD7054A844BD47EC3C2"/>
+            </EntityType>
+            <EntityType Name="ProductOrderType" sap:label="Projection CDS View For Order" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrderUuid"/>
+                </Key>
+                <Property Name="move_to_next_phase_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrderUuid" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CustomerId" Type="Edm.String" MaxLength="10" sap:label="Customer ID" sap:value-list="standard"/>
+                <Property Name="ProductUuid" Type="Edm.Guid" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)" sap:updatable="false"/>
+                <Property Name="Phaseid" Type="Edm.Byte" sap:label="Phase ID"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Customer Name" sap:value-list="standard"/>
+                <Property Name="CustomerCountry" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Country" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ImageUrl" Type="Edm.String" MaxLength="200" sap:label="URL"/>
+                <Property Name="LanguCode" Type="Edm.String" MaxLength="2" sap:label="Language code" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderAmount" Type="Edm.Int32" sap:unit="SizeUom" sap:label="Product amount"/>
+                <Property Name="SizeUom" Type="Edm.String" MaxLength="3" sap:label="Internal UoM" sap:quickinfo="Unit of Measurement" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="Phase" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Phase" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationTime" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Created On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangeTime" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Changed On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CriticalityOrder" Type="Edm.Byte"/>
+                <NavigationProperty Name="to_product" Relationship="cds_zpok_sd_product.assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5" FromRole="FromRole_assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5" ToRole="ToRole_assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5"/>
+            </EntityType>
+            <EntityType Name="ProductType" sap:label="Projection CDS View For Product" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProdUuid"/>
+                </Key>
+                <Property Name="move_to_ripe_ac" Type="Edm.Boolean" sap:label="Dyn. Action Control" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProdUuid" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Prodid" Type="Edm.String" MaxLength="15" sap:label="Product ID"/>
+                <Property Name="Pgid" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Product gr ID" sap:quickinfo="Product group ID"/>
+                <Property Name="Pgname" Type="Edm.String" MaxLength="30" sap:label="Product Group" sap:quickinfo="Product group name" sap:value-list="standard"/>
+                <Property Name="ProdStatus" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Ripe?" sap:quickinfo="Product_status"/>
+                <Property Name="ProdDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Production date"/>
+                <Property Name="UseByDate" Type="Edm.DateTime" Precision="0" sap:display-format="Date" sap:label="Used by date" sap:quickinfo="Use by date"/>
+                <Property Name="ProductSize" Type="Edm.Int32" sap:unit="SizeUom" sap:label="Product amount"/>
+                <Property Name="SizeUom" Type="Edm.String" MaxLength="3" sap:label="Internal UoM" sap:quickinfo="Unit of Measurement" sap:value-list="standard" sap:semantics="unit-of-measure"/>
+                <Property Name="PgUrl" Type="Edm.String" MaxLength="200" sap:label="URL"/>
+                <Property Name="Price" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="price_currency" sap:variable-scale="true" sap:label="Price / KG"/>
+                <Property Name="TotalPrice" Type="Edm.Decimal" Precision="15" Scale="3" sap:unit="price_currency" sap:variable-scale="true" sap:label="Total Price" sap:quickinfo="Total price" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="price_currency" Type="Edm.String" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:value-list="standard" sap:semantics="currency-code"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreationTime" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Created On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangedBy" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ChangeTime" Type="Edm.Decimal" Precision="15" Scale="0" sap:label="Changed On" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Criticality" Type="Edm.Byte"/>
+                <NavigationProperty Name="to_location" Relationship="cds_zpok_sd_product.assoc_77D92E8D02F82517DEA268ACDB0252B5" FromRole="FromRole_assoc_77D92E8D02F82517DEA268ACDB0252B5" ToRole="ToRole_assoc_77D92E8D02F82517DEA268ACDB0252B5"/>
+                <NavigationProperty Name="to_order" Relationship="cds_zpok_sd_product.assoc_AB67152BBD796F1F0AE5F7B8A751B7CF" FromRole="FromRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF" ToRole="ToRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF"/>
+            </EntityType>
+            <EntityType Name="zpok_i_currencyType" sap:label="View For Currency" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Currency"/>
+                </Key>
+                <Property Name="Currency" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Currency" sap:quickinfo="Currency Key" sap:semantics="currency-code"/>
+                <Property Name="Decimals" Type="Edm.Byte" sap:label="Decimal Places" sap:quickinfo="Number of decimal places"/>
+                <Property Name="CurrencyISOCode" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="ISO Code" sap:quickinfo="ISO Currency Code"/>
+                <Property Name="AlternativeCurrencyKey" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Alternative Key"/>
+                <Property Name="IsPrimaryCurrencyForISOCrcy" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Primary" sap:quickinfo="Primary SAP Currency Code for ISO Code"/>
+            </EntityType>
+            <EntityType Name="zpok_i_customerType" sap:label="View for Customer" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CustomerId"/>
+                </Key>
+                <Property Name="CustomerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:label="Customer ID"/>
+                <Property Name="CustomerName" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Customer Name"/>
+                <Property Name="Country" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Country"/>
+                <Property Name="Code" Type="Edm.String" MaxLength="2" sap:label="Language code"/>
+                <Property Name="ImageUrl" Type="Edm.String" MaxLength="200" sap:label="URL"/>
+            </EntityType>
+            <EntityType Name="ProdGrType" sap:label="Product Group View" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Pgid"/>
+                </Key>
+                <Property Name="Pgid" Type="Edm.String" Nullable="false" MaxLength="3" sap:display-format="UpperCase" sap:label="Product gr ID" sap:quickinfo="Product group ID"/>
+                <Property Name="Pgname" Type="Edm.String" MaxLength="30" sap:label="Product Group" sap:quickinfo="Product group name"/>
+                <Property Name="Imageurl" Type="Edm.String" MaxLength="200" sap:label="URL"/>
+            </EntityType>
+            <EntityType Name="UOMType" sap:label="View For UOM" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Msehi"/>
+                </Key>
+                <Property Name="Msehi" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Internal UoM" sap:quickinfo="Unit of Measurement" sap:semantics="unit-of-measure"/>
+                <Property Name="Dimid" Type="Edm.String" MaxLength="6" sap:label="Dimension"/>
+                <Property Name="Isocode" Type="Edm.String" MaxLength="3" sap:label="ISO-Code"/>
+            </EntityType>
+            <EntityType Name="zpok_vh_cell_statusType" sap:label="Value Help" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CellID"/>
+                </Key>
+                <Property Name="CellID" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Cell id" sap:quickinfo="Cell ID"/>
+                <Property Name="CellRow" Type="Edm.Byte" sap:label="Cell Row" sap:quickinfo="Cell row"/>
+                <Property Name="CellDeep" Type="Edm.Byte" sap:label="Cell Deep" sap:quickinfo="Cell deep"/>
+                <Property Name="CellStatus" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Cell status" sap:quickinfo="Cell Status"/>
+                <Property Name="Criticality" Type="Edm.String" MaxLength="8"/>
+            </EntityType>
+            <Association Name="assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5" sap:content-version="1">
+                <End Type="cds_zpok_sd_product.ProductOrderType" Multiplicity="1" Role="FromRole_assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5"/>
+                <End Type="cds_zpok_sd_product.ProductType" Multiplicity="1" Role="ToRole_assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5"/>
+            </Association>
+            <Association Name="assoc_77D92E8D02F82517DEA268ACDB0252B5" sap:content-version="1">
+                <End Type="cds_zpok_sd_product.ProductType" Multiplicity="1" Role="FromRole_assoc_77D92E8D02F82517DEA268ACDB0252B5">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zpok_sd_product.LocationType" Multiplicity="*" Role="ToRole_assoc_77D92E8D02F82517DEA268ACDB0252B5"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_77D92E8D02F82517DEA268ACDB0252B5">
+                        <PropertyRef Name="ProdUuid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_77D92E8D02F82517DEA268ACDB0252B5">
+                        <PropertyRef Name="ProductUuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_AB67152BBD796F1F0AE5F7B8A751B7CF" sap:content-version="1">
+                <End Type="cds_zpok_sd_product.ProductType" Multiplicity="1" Role="FromRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zpok_sd_product.ProductOrderType" Multiplicity="*" Role="ToRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF">
+                        <PropertyRef Name="ProdUuid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF">
+                        <PropertyRef Name="ProductUuid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_B32D896801886AD7054A844BD47EC3C2" sap:content-version="1">
+                <End Type="cds_zpok_sd_product.LocationType" Multiplicity="1" Role="FromRole_assoc_B32D896801886AD7054A844BD47EC3C2"/>
+                <End Type="cds_zpok_sd_product.ProductType" Multiplicity="1" Role="ToRole_assoc_B32D896801886AD7054A844BD47EC3C2"/>
+            </Association>
+            <EntityContainer Name="cds_zpok_sd_product_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="Location" EntityType="cds_zpok_sd_product.LocationType" sap:content-version="1"/>
+                <EntitySet Name="ProductOrder" EntityType="cds_zpok_sd_product.ProductOrderType" sap:content-version="1"/>
+                <EntitySet Name="Product" EntityType="cds_zpok_sd_product.ProductType" sap:content-version="1"/>
+                <EntitySet Name="zpok_i_currency" EntityType="cds_zpok_sd_product.zpok_i_currencyType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zpok_i_customer" EntityType="cds_zpok_sd_product.zpok_i_customerType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ProdGr" EntityType="cds_zpok_sd_product.ProdGrType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="UOM" EntityType="cds_zpok_sd_product.UOMType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="zpok_vh_cell_status" EntityType="cds_zpok_sd_product.zpok_vh_cell_statusType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5" Association="cds_zpok_sd_product.assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ProductOrder" Role="FromRole_assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5"/>
+                    <End EntitySet="Product" Role="ToRole_assoc_C5BC54DCB0F94DF8C5C8E6258507D6C5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_B32D896801886AD7054A844BD47EC3C2" Association="cds_zpok_sd_product.assoc_B32D896801886AD7054A844BD47EC3C2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Location" Role="FromRole_assoc_B32D896801886AD7054A844BD47EC3C2"/>
+                    <End EntitySet="Product" Role="ToRole_assoc_B32D896801886AD7054A844BD47EC3C2"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_77D92E8D02F82517DEA268ACDB0252B5" Association="cds_zpok_sd_product.assoc_77D92E8D02F82517DEA268ACDB0252B5" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Product" Role="FromRole_assoc_77D92E8D02F82517DEA268ACDB0252B5"/>
+                    <End EntitySet="Location" Role="ToRole_assoc_77D92E8D02F82517DEA268ACDB0252B5"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_AB67152BBD796F1F0AE5F7B8A751B7CF" Association="cds_zpok_sd_product.assoc_AB67152BBD796F1F0AE5F7B8A751B7CF" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Product" Role="FromRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF"/>
+                    <End EntitySet="ProductOrder" Role="ToRole_assoc_AB67152BBD796F1F0AE5F7B8A751B7CF"/>
+                </AssociationSet>
+                <FunctionImport Name="free_cell" ReturnType="cds_zpok_sd_product.LocationType" EntitySet="Location" m:HttpMethod="POST" sap:action-for="cds_zpok_sd_product.LocationType" sap:applicable-path="free_cell_ac">
+                    <Parameter Name="StoregeUuig" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
+                    <Parameter Name="CellId" Type="Edm.String" Mode="In" MaxLength="30" sap:label="Cell id"/>
+                    <Parameter Name="ProductUuid" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
+                </FunctionImport>
+                <FunctionImport Name="move_to_next_phase" ReturnType="cds_zpok_sd_product.ProductOrderType" EntitySet="ProductOrder" m:HttpMethod="POST" sap:action-for="cds_zpok_sd_product.ProductOrderType" sap:applicable-path="move_to_next_phase_ac">
+                    <Parameter Name="OrderUuid" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
+                </FunctionImport>
+                <FunctionImport Name="move_to_ripe" ReturnType="cds_zpok_sd_product.ProductType" EntitySet="Product" m:HttpMethod="POST" sap:action-for="cds_zpok_sd_product.ProductType" sap:applicable-path="move_to_ripe_ac">
+                    <Parameter Name="ProdUuid" Type="Edm.Guid" Mode="In" sap:label="UUID"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_zpok_sd_product.LocationType/CellId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="zpok_vh_cell_status"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CellStatus"/>
+                                    <Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CellId"/>
+                                    <PropertyValue Property="ValueListProperty" String="CellID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CellRow"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CellDeep"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Criticality"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.LocationType/SizeUom" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="UOM"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SizeUom"/>
+                                    <PropertyValue Property="ValueListProperty" String="Msehi"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Dimid"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Isocode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductOrderType/CustomerId" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="zpok_i_customer"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerId"/>
+                                    <PropertyValue Property="ValueListProperty" String="customer_id"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerId"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ImageUrl"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductOrderType/CustomerName" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="zpok_i_customer"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CustomerName"/>
+                                    <PropertyValue Property="ValueListProperty" String="CustomerName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CustomerId"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Country"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Code"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ImageUrl"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductOrderType/SizeUom" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="UOM"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SizeUom"/>
+                                    <PropertyValue Property="ValueListProperty" String="Msehi"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Dimid"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Isocode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductType/Pgname" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ProdGr"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Pgname"/>
+                                    <PropertyValue Property="ValueListProperty" String="Pgname"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Pgid"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Imageurl"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductType/SizeUom" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="UOM"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="SizeUom"/>
+                                    <PropertyValue Property="ValueListProperty" String="Msehi"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Dimid"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Isocode"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductType/price_currency" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="zpok_i_currency"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="price_currency"/>
+                                    <PropertyValue Property="ValueListProperty" String="Currency"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Decimals"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CurrencyISOCode"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AlternativeCurrencyKey"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsPrimaryCurrencyForISOCrcy"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.cds_zpok_sd_product_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductOrderType/OrderAmount" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductType/Price" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductType/Prodid" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.cds_zpok_sd_product_Entities/Location" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>free_cell_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>free_cell_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.cds_zpok_sd_product_Entities/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>move_to_ripe_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_location"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_order"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>move_to_ripe_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.cds_zpok_sd_product_Entities/ProductOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>move_to_next_phase_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>move_to_next_phase_ac</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.LocationType/ProductUuid" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Immutable"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.ProductOrderType/ProductUuid" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Core.Immutable"/>
+            </Annotations>
+            <Annotations Target="cds_zpok_sd_product.cds_zpok_sd_product_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../iwbep/common;v=0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../iwbep/common;v=0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/sap/ZPOK_SB_PRODUCT/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://0d0ffc4e-bc3b-4069-89d4-ffbad8f00bcb.abap.eu10.hana.ondemand.com/sap/opu/odata/sap/ZPOK_SB_PRODUCT/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
